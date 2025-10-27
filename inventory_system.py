@@ -5,11 +5,16 @@ from datetime import datetime
 # Global variable
 stock_data = {}
 
-def addItem(item="default", qty=0, logs=[]):
+
+def addItem(item="default", qty=0, logs=None):
+    if logs is None:
+        logs = []  
     if not item:
         return
-    stock_data[item] = stock_data.get(item, 0) + qty
-    logs.append("%s: Added %d of %s" % (str(datetime.now()), qty, item))
+    # ...
+    logs.append(f"{datetime.now()}: Added {qty} of {item}") # Suggested F-string fix for line 14
+
+
 
 def removeItem(item, qty):
     try:
