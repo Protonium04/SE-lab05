@@ -12,7 +12,7 @@ def addItem(item="default", qty=0, logs=None):
     if not item:
         return
     # ...
-    logs.append(f"{datetime.now()}: Added {qty} of {item}") # Suggested F-string fix for line 14
+    logs.append(f"{datetime.now()}: Added {qty} of {item}") 
 
 
 
@@ -21,7 +21,7 @@ def removeItem(item, qty):
         stock_data[item] -= qty
         if stock_data[item] <= 0:
             del stock_data[item]
-    except:
+    except KeyError:
         pass
 
 def getQty(item):
